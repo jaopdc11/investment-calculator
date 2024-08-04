@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="img/icon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@200&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Calculadora de Investimentos - IFCE Finanças</title>
+</head>
+<body>
+
+    <nav class="navs">
+        <ul class="navbar">
+            <li class="item">
+                <a class="nav-link" href="#intro">INÍCIO</a>
+            </li>
+            <li class="item">
+                <a href="#manager" class="nav-link">GERENCIADOR</a>
+            </li>
+            <li class="item">
+                <a class="nav-link" href="#calculator">CALCULADORAS</a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="container">
+
+        <h2  id="titulo-intro" class="titulo-intro">Conheça os Fundamentos do Investimento Financeiro</h2>
+
+        <section class="intro" id="intro">
+            <h3>Investir</h3>
+            <p>Investir é uma estratégia financeira essencial para alcançar seus objetivos de longo prazo. Existem duas principais categorias de investimentos: renda fixa e renda variável.</p>
+            
+            <h3>Renda Fixa</h3>
+            <p>Investimentos em renda fixa são conhecidos por sua previsibilidade e menor risco. Eles incluem títulos como CDBs, Tesouro Direto e poupança. Esses investimentos oferecem retornos consistentes ao longo do tempo.</p>
+            
+            <h3>Renda Variável</h3>
+            <p>Por outro lado, investimentos em renda variável, como ações e fundos imobiliários, apresentam um risco maior, mas também podem trazer retornos significativos. Eles estão sujeitos às flutuações do mercado e requerem uma análise mais aprofundada.</p>
+            
+            <h3>Juros Simples e Compostos</h3>
+            <p>Os juros são um componente fundamental de qualquer investimento. Os juros simples são calculados apenas sobre o valor inicial investido. Já os juros compostos levam em consideração o acúmulo de juros sobre juros, resultando em crescimento exponencial ao longo do tempo.</p>
+            
+            <h3>Importância da Reserva de Emergência</h3>
+            <p>Antes de começar a investir, é crucial criar uma reserva de emergência. Essa reserva deve ser suficiente para cobrir despesas essenciais por alguns meses em caso de imprevistos financeiros. Isso garante que você não precise resgatar seus investimentos prematuramente.</p>
+
+            <h3>Importância do Gerenciamento Financeiro</h3>
+            <p>O gerenciamento financeiro desempenha um papel fundamental na vida das famílias. Ele é essencial para garantir a estabilidade financeira, alcançar metas de longo prazo e lidar com imprevistos. </p>
+            
+            <p>Explorando as calculadoras de investimentos e o gerenciador financeiro abaixo, você pode entender melhor como a economia da sua família pode crescer ao longo do tempo e como escolher a melhor estratégia para alcançar seus objetivos financeiros.</p>
+        </section>
+
+        <h1>Gerenciador Financeiro</h1>
+
+        <!-- Gerenciador Financeiro -->
+        <section class="manager" id="manager">
+            <h2 id="titulo-gerenciador">Gerencie sua Economia Familiar</h2>
+
+            <form id="financial-manager-form">
+                <div class="form-group">
+                    <label for="monthly-income">Renda Mensal (em BRL):</label>
+                    <input type="number" class="input" id="monthly-income" required oninput="updateFinancialPlan()">
+                </div>
+                <div class="form-group">
+                    <label for="family-members">Quantidade de Membros da Família:</label>
+                    <input type="number" class="input" id="family-members" required oninput="updateFinancialPlan()">
+                </div>
+            </form>
+
+            <div id="financial-plan" style="display: none;">
+                <h3>Regra 50-30-20</h3>
+                <p>A regra 50-30-20 é uma estratégia financeira recomendada para equilibrar seu orçamento e alcançar objetivos financeiros. Ela divide sua renda mensal da seguinte forma:</p>
+                <p>Com base nos valores que você inseriu, aqui está uma previsão de investimentos aplicada à sua situação:</p>
+            </div>
+
+            <br><br>
+            <table>
+                <tbody>
+                    <tr>
+                        <th>PIB Per Capita:</th>
+                        <td id="pib-value"></td>
+                    </tr>
+                    <tr>
+                        <th>Despesas Essenciais (50% da renda):</th>
+                        <td id="despesase"></td>
+                    </tr>
+                    <tr>
+                        <th>Despesas Pessoais (30% da renda):</th>
+                        <td id="despesasp"></td>
+                    </tr>
+                    <tr>
+                        <th>Investimentos (20% da renda):</th>
+                        <td id="investimentos"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <br><br>
+
+        </section>
+
+        <h1>Calculadoras Financeiras</h1>
+
+        <!-- Calculadora de Juros Compostos -->
+        <section class="calculator" id="calculator">
+            <h2 id="titulo-calculadora">Calculadora de Juros Compostos:</h2>
+            <div class="form-group">
+                <label for="interest-rate-compound">Taxa de Juros ao Mês (%):</label>
+                <input type="number" class="input"  id="interest-rate-compound" value="0.5" oninput="calculateCompound()">
+            </div>
+            <div class="form-group">
+                <label for="months-compound">Período em Meses:</label>
+                <input type="number" class="input"  id="months-compound" value="12" oninput="calculateCompound()">
+            </div>
+            <div class="form-group">
+                <label for="tax-compound">Taxa de Imposto (%):</label>
+                <input type="number" class="input" id="tax-compound" value="20" oninput="calculateCompound()">
+            </div>
+            <section class="results">
+                <h3>Resultados Juros Compostos:</h3>
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>Total Investido:</th>
+                            <td id="total-invested-compound"></td>
+                        </tr>
+                        <tr>
+                            <th>Total Final:</th>
+                            <td id="total-final-compound"></td>
+                        </tr>
+                        <tr>
+                            <th>Rendimento Bruto:</th>
+                            <td id="gross-earnings-compound"></td>
+                        </tr>
+                        <tr>
+                            <th>Rendimento Líquido:</th>
+                            <td id="net-earnings-compound"></td>
+                        </tr>
+                        <tr>
+                            <th>Imposto:</th>
+                            <td id="tax-compound-result"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </section>
+
+        <!-- Calculadora de Juros Simples -->
+        <section class="calculator">
+            <h2>Calculadora de Juros Simples:</h2>
+            <div class="form-group">
+                <label for="interest-rate-simple">Taxa de Juros ao Mês:</label>
+                <input type="number" class="input"  id="interest-rate-simple" value="0.5" oninput="calculateSimple()">
+            </div>
+            <div class="form-group">
+                <label for="months-simple">Período em Meses:</label>
+                <input type="number" class="input"  id="months-simple" value="12" oninput="calculateSimple()">
+            </div>
+            <section class="results">
+                <h3>Resultados Juros Simples:</h3>
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>Montante:</th>
+                            <td id="final-amount-simple"></td>
+                        </tr>
+                        <tr>
+                            <th>Juros Totais:</th>
+                            <td id="total-interest-simple"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </section>
+
+        <section class="tesouro">
+            <h1>Investimento em Tesouro Selic</h1>
+            <div class="form-group">
+                <label for="months-tesouro">Período em Meses:</label>
+                <input type="number" class="input"  id="months-tesouro" value="12" oninput="calculateSelic()">
+            </div>
+        
+            <section class="results">
+                <h3>Resultados Investimento na Taxa Selic:</h3>
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>Total Investido:</th>
+                            <td id="total-invested-selic"></td>
+                        </tr>
+                        <tr>
+                            <th>Total Retorno:</th>
+                            <td id="total-retorno-selic"></td>
+                        </tr>
+                        <tr>
+                            <th>Total Lucro:</th>
+                            <td id="total-lucro-selic"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </section>
+
+    </div>    
+
+    <footer class="footer">
+        <p class="credits">Desenvolvido por: João Pedro, 202. 2023.</p>
+        <a href="https://github.com/jaozzy/" target="_blank" class="github-link">
+            <img src="img/github.svg" alt="GitHub">
+        </a>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
